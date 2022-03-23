@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  go-server:
+    container_name: go-server-container
+    build: go-server
+    environment:
+      - GO_PORT=9000
+    ports:
+      - "7070:9000"
+  node-server:
+    container_name: node-server-container
+    build: node-server
+    environment:
+      - NODE_PORT=9001
+    ports:
+      - "7071:9001"
