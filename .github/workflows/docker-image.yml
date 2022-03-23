@@ -28,15 +28,15 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./servers/go-server
-          file: ./Dockerfile
+          context: .
+          file: ./servers/go-server/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-server:test
 
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./servers/node-server
-          file: ./Dockerfile
+          context: .
+          file: ./servers/node-server/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/node-server:test
