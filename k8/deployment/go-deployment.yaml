@@ -3,17 +3,23 @@ kind: Deployment
 metadata:
   name: go-server-deployment
   labels:
-    app: go-server
-
+    app_name: go-server
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: go-server
+      app_name: go-server
   template:
     metadata:
       name: go-server
+      labels:
+        app_name: go-server
     spec:
       containers:
-        - name: go-server-container
-          image:
+        - name: go-server
+          image: atul161/go-server
+          ports:
+            - containerPort: 7000
+          env:
+            - name: GO_PORT
+              value: "7000"
