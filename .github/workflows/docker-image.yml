@@ -31,7 +31,7 @@ jobs:
           context: .
           file: ./servers/go-server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-server:test
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-server:latest
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -39,4 +39,4 @@ jobs:
           context: .
           file: ./servers/node-server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/node-server:test
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/node-server:latest
