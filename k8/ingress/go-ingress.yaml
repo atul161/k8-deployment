@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-server-ingress
+spec:
+  rules:
+    - host: learning-kubernates-go
+      http:
+        paths:
+          - backend:
+              service:
+                name: go-server-service
+                port:
+                  number: 80
+
+            pathType: Exact
