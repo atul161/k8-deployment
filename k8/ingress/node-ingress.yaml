@@ -4,13 +4,13 @@ metadata:
   name: node-server-ingress
 spec:
   rules:
-    - host: learning-kubernates-node
+    - host: kubernates-learning.com
       http:
         paths:
-          - backend:
+          - path: /node
+            pathType: Exact
+            backend:
               service:
                 name: node-server-service
                 port:
-                  number: 80
-
-            pathType: Exact
+                  number: 7001

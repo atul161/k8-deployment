@@ -4,13 +4,13 @@ metadata:
   name: go-server-ingress
 spec:
   rules:
-    - host: learning-kubernates-go
+    - host: kubernates-learning.com
       http:
         paths:
-          - backend:
+          - path: /go
+            pathType: Exact
+            backend:
               service:
                 name: go-server-service
                 port:
-                  number: 80
-
-            pathType: Exact
+                  number: 7000
