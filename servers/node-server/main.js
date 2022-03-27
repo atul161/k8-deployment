@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/counter', (req, res) => {
     console.log("Node Js : You hit me so hardly")
     count++
-    res.send(count)
+    res.send(count.toString())
 })
 app.listen(port, () => {
     console.log(`Node server: Application started:port is:${process.env.NODE_PORT}`)
