@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-server-deployment
+  namespace: backend-applications
   labels:
     app_name: go-server
 spec:
@@ -20,6 +21,6 @@ spec:
           image: atul161/go-server
           ports:
             - containerPort: 7000
-          env:
-            - name: GO_PORT
-              value: "7000"
+          envFrom:
+            - secretRef:
+                name: go-service-secret

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-server-deployment
+  namespace: backend-applications
+  labels:
+    app_name: node-server
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app_name: node-server
+  template:
+    metadata:
+      name: node-server
+      labels:
+        app_name: node-server
+    spec:
+      containers:
+        - name: node-server
+          image: atul161/node-server
+          ports:
+            - containerPort: 7001
+          envFrom:
+            - secretRef:
+                name: node-service-secret

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-client-deployment
+  namespace: backend-applications
+  labels:
+    app_name: node-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app_name: node-client
+  template:
+    metadata:
+      name: node-client
+      labels:
+        app_name: node-client
+    spec:
+      containers:
+        - name: go-client
+          image: atul161/node-client
+          env:
+            - name: URL
+              value: "go-server-service:7000"

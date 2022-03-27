@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: backend-applications
+  name: node-server-ingress
+spec:
+  rules:
+    - host: kubernates-learning.com
+      http:
+        paths:
+          - path: /node
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: node-server-service
+                port:
+                  number: 7000

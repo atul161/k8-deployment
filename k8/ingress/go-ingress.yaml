@@ -2,13 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress
+  namespace: backend-applications
 spec:
   rules:
     - host: kubernates-learning.com
       http:
         paths:
           - path: /go
-            pathType: Exact
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: go-server-service
