@@ -6,6 +6,7 @@ const axios = require('axios');
 async function bootstrap() {
     console.log("Inside client")
     const url = process.env.URL
+    console.log("Client url is", url)
     while (true){
         try{
             await axios.get(url).then(resp => {
